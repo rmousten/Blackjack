@@ -63,11 +63,11 @@ string draw_card(const Card& card) {
 
     // Build ASCII art for the card
     string card_art =
-        "┌─────┐\n"
+        "+-----+\n"
         "|" + rank + "   |\n"
         "|  " + suit_symbol + "  |\n"
         "|   " + rank + "|\n"
-        "└─────┘";
+        "+-----+";
     return card_art; // Return ASCII art string
 }
 
@@ -79,11 +79,11 @@ void show_hand_graphic(const vector<Card>& hand, bool hide_first = false) {
         // Hide the first card for dealer's initial hand
         if (hide_first && i == 0) {
             art =
-                "┌─────┐\n"
-                "|░░░░░|\n"
-                "|░░░░░|\n"
-                "|░░░░░|\n"
-                "└─────┘";
+                "+-----+\n"
+                "|#####|\n"
+                "|#####|\n"
+                "|#####|\n"
+                "+-----+";
         } else {
             art = draw_card(hand[i]); // Draw actual card
         }
