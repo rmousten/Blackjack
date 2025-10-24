@@ -120,10 +120,22 @@ void blackjack_game() {
     while (money > 0) { // Continue playing until money runs out
         cout << "\nYou have $" << money << ". Enter your bet: "; // Show current money and ask for bet
         int bet;
+        string input;
         while (true) { // Validate bet input
-            cin >> bet;
-            if (bet > 0 && bet <= money) break; // Accept valid bet
-            cout << "Invalid bet. Enter a value between 1 and " << money << ": "; // Ask again if invalid
+            cin >> input;
+            // Check if input is numeric
+            bool is_numeric = true;
+            for (char c : input) {
+                if (!isdigit(c)) {
+                    is_numeric = false;
+                    break;
+                }
+            }
+            if (is_numeric) {
+                bet = stoi(input);
+                if (bet > 0 && bet <= money) break;
+            }
+            cout << "Invalid bet. Please enter a number between 1 and " << money << ": ";
         }
 
         auto deck = create_deck(); // Create and shuffle deck
@@ -199,7 +211,8 @@ void blackjack_game() {
 }
 
 // Program entry point
-int main() {
+int main() 
+{
     blackjack_game(); // Start the blackjack game
     return 0;         // End program
 }
