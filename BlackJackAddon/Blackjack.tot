@@ -1,0 +1,6 @@
+## Interface: 11501
+## Title: Blackjack
+## Notes: Play Blackjack in WoW!
+## SavedVariables: BlackjackDB
+
+Blackjack.lua
